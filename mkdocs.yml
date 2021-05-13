@@ -19,21 +19,19 @@
 # IN THE SOFTWARE.
 
 # Project information
-site_name: Material for MkDocs
-site_url: https://squidfunk.github.io/mkdocs-material/
-site_author: Martin Donath
+site_name: Abi Aryan
+site_url: https://www.abiaryan.com/
+site_author: Abi Aryan
 site_description: >-
-  Create a branded static site from a set of Markdown files to host the
-  documentation of your Open Source or commercial project – customizable,
-  searchable, mobile-friendly, 40+ languages
+  Personal Blog
 
 # Repository
-repo_name: squidfunk/mkdocs-material
-repo_url: https://github.com/squidfunk/mkdocs-material
-edit_uri: ""
+# repo_name: squidfunk/mkdocs-material
+# repo_url: https://github.com/squidfunk/mkdocs-material
+# edit_uri: ""
 
 # Copyright
-copyright: Copyright &copy; 2016 - 2021 Martin Donath
+copyright: Copyright &copy; 2021 Abi Aryan
 
 # Configuration
 theme:
@@ -56,8 +54,8 @@ theme:
     - navigation.tabs
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: white
+      accent: teal
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
@@ -70,47 +68,49 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: assets/favicon.png
+  favicon: logo
   icon:
     logo: logo
 
 # Plugins
 plugins:
   - search
-  - redirects:
-      redirect_maps:
-        changelog/insiders.md: insiders/changelog.md
-        extensions/admonition.md: reference/admonitions.md
-        extensions/codehilite.md: reference/code-blocks.md
-        extensions/footnotes.md: reference/footnotes.md
-        extensions/metadata.md: reference/meta-tags.md
-        extensions/permalinks.md: setup/setting-up-navigation.md #permalink
-        extensions/pymdown.md: reference/admonitions.md
-        plugins/revision-date.md: setup/adding-a-git-repository.md #revision-date
-        plugins/search.md: setup/setting-up-site-search.md
-        releases/4.md: upgrading.md #upgrading-from-4x-to-5x
-        releases/5.md: upgrading.md #upgrading-from-3x-to-4x
-        releases/changelog.md: changelog.md
-        setup/adding-social-links.md: setup/setting-up-the-footer.md
-        sponsorship.md: insiders/index.md
-  - minify:
-      minify_html: true
+  # - redirects:
+  #     redirect_maps:
+  #       changelog/insiders.md: insiders/changelog.md
+  #       extensions/admonition.md: reference/admonitions.md
+  #       extensions/codehilite.md: reference/code-blocks.md
+  #       extensions/footnotes.md: reference/footnotes.md
+  #       extensions/metadata.md: reference/meta-tags.md
+  #       extensions/permalinks.md: setup/setting-up-navigation.md #permalink
+  #       extensions/pymdown.md: reference/admonitions.md
+  #       plugins/revision-date.md: setup/adding-a-git-repository.md #revision-date
+  #       plugins/search.md: setup/setting-up-site-search.md
+  #       releases/4.md: upgrading.md #upgrading-from-4x-to-5x
+  #       releases/5.md: upgrading.md #upgrading-from-3x-to-4x
+  #       releases/changelog.md: changelog.md
+  #       setup/adding-social-links.md: setup/setting-up-the-footer.md
+  #       sponsorship.md: insiders/index.md
+  # - minify:
+  #     minify_html: true
 
 # Customization
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/squidfunk
-    - icon: fontawesome/brands/gitter
-      link: https://gitter.im/squidfunk/mkdocs-material
-    - icon: fontawesome/brands/docker
-      link: https://hub.docker.com/r/squidfunk/mkdocs-material/
+      link: https://github.com/abi-aryan
+    # - icon: fontawesome/brands/gitter
+    #   link: https://gitter.im/squidfunk/mkdocs-material
+    # - icon: fontawesome/brands/docker
+    #   link: https://hub.docker.com/r/squidfunk/mkdocs-material/
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/squidfunk
-    - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/in/squidfunk/
-    - icon: fontawesome/brands/instagram
-      link: https://instagram.com/squidfunk
+      link: https://twitter.com/goabiaryan
+    # - icon: fontawesome/brands/linkedin
+    #   link: https://linkedin.com/in/squidfunk/
+    # - icon: fontawesome/brands/instagram
+    #   link: https://instagram.com/squidfunk
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:<abi@abiaryan.com>
 
 # Extensions
 markdown_extensions:
@@ -153,55 +153,62 @@ markdown_extensions:
   - pymdownx.tilde
 
 # Page tree
+# nav:
+#   - Home: index.md
+#   - Getting started:
+#     - Installation: getting-started.md
+#     - Creating your site: creating-your-site.md
+#     - Publishing your site: publishing-your-site.md
+#     - Customization: customization.md
+#     - Troubleshooting: troubleshooting.md
+#     - Data privacy: data-privacy.md
+#     - License: license.md
+#     - Releases:
+#       - Changelog: changelog.md
+#       - Upgrade guide: upgrading.md
+#       - Deprecations: deprecations.md
+#   - Setup:
+#     - Changing the colors: setup/changing-the-colors.md
+#     - Changing the fonts: setup/changing-the-fonts.md
+#     - Changing the language: setup/changing-the-language.md
+#     - Changing the logo and icons: setup/changing-the-logo-and-icons.md
+#     - Setting up navigation: setup/setting-up-navigation.md
+#     - Setting up site search: setup/setting-up-site-search.md
+#     - Setting up site analytics: setup/setting-up-site-analytics.md
+#     - Setting up tags: setup/setting-up-tags.md
+#     - Setting up versioning: setup/setting-up-versioning.md
+#     - Setting up the header: setup/setting-up-the-header.md
+#     - Setting up the footer: setup/setting-up-the-footer.md
+#     - Adding a git repository: setup/adding-a-git-repository.md
+#     - Adding a comment system: setup/adding-a-comment-system.md
+#   - Reference:
+#     - Abbreviations: reference/abbreviations.md
+#     - Admonitions: reference/admonitions.md
+#     - Buttons: reference/buttons.md
+#     - Code blocks: reference/code-blocks.md
+#     - Content tabs: reference/content-tabs.md
+#     - Data tables: reference/data-tables.md
+#     - Diagrams: reference/diagrams.md
+#     - Footnotes: reference/footnotes.md
+#     - Formatting: reference/formatting.md
+#     - Icons + Emojis: reference/icons-emojis.md
+#     - Images: reference/images.md
+#     - Lists: reference/lists.md
+#     - MathJax: reference/mathjax.md
+#     - Meta tags: reference/meta-tags.md
+#     - Variables: reference/variables.md
+#   - Insiders:
+#     - Sponsorship: insiders/index.md
+#     - Getting started:
+#       - Installation: insiders/getting-started.md
+#       - Changelog: insiders/changelog.md
 nav:
-  - Home: index.md
-  - Getting started:
-    - Installation: getting-started.md
-    - Creating your site: creating-your-site.md
-    - Publishing your site: publishing-your-site.md
-    - Customization: customization.md
-    - Troubleshooting: troubleshooting.md
-    - Data privacy: data-privacy.md
-    - License: license.md
-    - Releases:
-      - Changelog: changelog.md
-      - Upgrade guide: upgrading.md
-      - Deprecations: deprecations.md
-  - Setup:
-    - Changing the colors: setup/changing-the-colors.md
-    - Changing the fonts: setup/changing-the-fonts.md
-    - Changing the language: setup/changing-the-language.md
-    - Changing the logo and icons: setup/changing-the-logo-and-icons.md
-    - Setting up navigation: setup/setting-up-navigation.md
-    - Setting up site search: setup/setting-up-site-search.md
-    - Setting up site analytics: setup/setting-up-site-analytics.md
-    - Setting up tags: setup/setting-up-tags.md
-    - Setting up versioning: setup/setting-up-versioning.md
-    - Setting up the header: setup/setting-up-the-header.md
-    - Setting up the footer: setup/setting-up-the-footer.md
-    - Adding a git repository: setup/adding-a-git-repository.md
-    - Adding a comment system: setup/adding-a-comment-system.md
-  - Reference:
-    - Abbreviations: reference/abbreviations.md
-    - Admonitions: reference/admonitions.md
-    - Buttons: reference/buttons.md
-    - Code blocks: reference/code-blocks.md
-    - Content tabs: reference/content-tabs.md
-    - Data tables: reference/data-tables.md
-    - Diagrams: reference/diagrams.md
-    - Footnotes: reference/footnotes.md
-    - Formatting: reference/formatting.md
-    - Icons + Emojis: reference/icons-emojis.md
-    - Images: reference/images.md
-    - Lists: reference/lists.md
-    - MathJax: reference/mathjax.md
-    - Meta tags: reference/meta-tags.md
-    - Variables: reference/variables.md
-  - Insiders:
-    - Sponsorship: insiders/index.md
-    - Getting started:
-      - Installation: insiders/getting-started.md
-      - Changelog: insiders/changelog.md
+  - Posts:
+      - Developing A.I. using Games: posts/2019-09-09-game-ai.md
+      - Dense Associative Memory for Pattern Recognition: posts/2017-09-10-associative-memory.md
+      - Why TensorLayer: posts/2019-05-10-why-tensorlayer.md     
+  - About: About.md
+  - News: index.md
 
 # Google Analytics
 google_analytics:
