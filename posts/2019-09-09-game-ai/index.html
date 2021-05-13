@@ -1,0 +1,750 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Personal Blog">
+      
+      
+      
+        <meta name="author" content="Abi Aryan">
+      
+      
+        <link rel="canonical" href="https://www.abiaryan.com/posts/2019-09-09-game-ai/">
+      
+      <link rel="icon" href="../../logo">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+    
+    
+      
+        <title>Developing A.I. using Games - Abi Aryan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","None","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#various-kinds-of-intelligence" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Abi Aryan" class="md-header__button md-logo" aria-label="Abi Aryan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Abi Aryan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Developing A.I. using Games
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="teal" type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red" type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Posts
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../About/" class="md-tabs__link">
+      About
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      News
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Abi Aryan" class="md-nav__button md-logo" aria-label="Abi Aryan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    Abi Aryan
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      <label class="md-nav__link" for="__nav_1">
+        Posts
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Posts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Posts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Developing A.I. using Games
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Developing A.I. using Games
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#various-kinds-of-intelligence" class="md-nav__link">
+    Various Kinds of Intelligence
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-player-games" class="md-nav__link">
+    Single Player Games
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-algorithms-for-ai-in-single-player-games" class="md-nav__link">
+    Key Algorithms for AI in Single Player Games
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiplayer-games" class="md-nav__link">
+    Multiplayer Games
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-world-is-a-simulation" class="md-nav__link">
+    The World is a Simulation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#but-training-ai-on-games-isnt-a-good-idea-in-the-long-run" class="md-nav__link">
+    But training AI on Games isn’t a good idea in the long run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-endedness" class="md-nav__link">
+    Open-Endedness
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-pcg" class="md-nav__link">
+    Introducing PCG
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-way-ahead-mixed-initiative-games" class="md-nav__link">
+    The Way Ahead: Mixed-Initiative Games
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2017-09-10-associative-memory/" class="md-nav__link">
+        Dense Associative Memory for Pattern Recognition
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2019-05-10-why-tensorlayer/" class="md-nav__link">
+        Why TensorLayer
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../About/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        News
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#various-kinds-of-intelligence" class="md-nav__link">
+    Various Kinds of Intelligence
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-player-games" class="md-nav__link">
+    Single Player Games
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-algorithms-for-ai-in-single-player-games" class="md-nav__link">
+    Key Algorithms for AI in Single Player Games
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiplayer-games" class="md-nav__link">
+    Multiplayer Games
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-world-is-a-simulation" class="md-nav__link">
+    The World is a Simulation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#but-training-ai-on-games-isnt-a-good-idea-in-the-long-run" class="md-nav__link">
+    But training AI on Games isn’t a good idea in the long run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-endedness" class="md-nav__link">
+    Open-Endedness
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-pcg" class="md-nav__link">
+    Introducing PCG
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-way-ahead-mixed-initiative-games" class="md-nav__link">
+    The Way Ahead: Mixed-Initiative Games
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Developing A.I. using Games</h1>
+                
+                <p>Intelligence is a highly abstract term that could mean several different things to several different people. In 2006, Shane Legg and Marcus Hutter decided to conduct a comprehensive literature review for the definition of intelligence in various disciplines. And thus, it paved the way for them to create a “complete” definition of intelligence finally presented in their 2007 paper <a href="https://arxiv.org/abs/0712.3329%0A">Universal Intelligence: A Definition of Machine Intelligence</a>. They defined it as -</p>
+<blockquote>
+<p>Intelligence measures an agent’s ability to achieve goals in a wide range of environments</p>
+</blockquote>
+<h3 id="various-kinds-of-intelligence">Various Kinds of Intelligence<a class="headerlink" href="#various-kinds-of-intelligence" title="Permanent link">&para;</a></h3>
+<p>While the above definition sound pretty general and obviously so. <strong>A goal</strong> can be anything — from moving from place A to place B — to — recognizing cat breeds from dog breeds — to — planning a birthday party.</p>
+<p>While most earlier intelligence tests only tested for cognitive intelligence, for artificial intelligence- we have another equally important field of work to develop, often dealt in robotics, called Physical Intelligence. One can easily remark that physical intelligence can, in fact, be broken into a sequence of decisions combined with motor abilities for a machine.</p>
+<p>All right, let’s take another example to mark the distinction- when we touch a hot saucepan we instantly pull our hand away, what kind of intelligence would you call it since it isn’t a goal-oriented intelligence? Maybe consciousness?! But then how do you define consciousness? Unfortunately given our own limited understanding of human cognition, defining it as consciousness is likely to send us spiraling down a never-ending <em>black hole</em> of what it means for something to be conscious or to have free will. Big, important terms. Poorly understood. But beyond the scope of this article.</p>
+<p>So, for the sake of simplicity, let us call it physical intelligence i.e. our tendency to protect ourselves. <strong>Bodies</strong> by pulling our hand back or reproducing — <strong>minds</strong> by saying I give up when the going gets hard — <strong>emotions</strong> by distancing ourselves from the source of pain.</p>
+<p>But, neither kind, cognitive or physical intelligence has yet been fully developed in only but biological organisms, and in varying degrees.</p>
+<p>Coming to the next term in that definition, <strong>the environment</strong>. It’s obvious that goals can only be measured in a particular environment. Environments, thus, act as the deterministic bounds for these goals.</p>
+<p>One of the most common domains where we explicitly seek, use and create environments is “Games” thus games become an excellent training ground for AI.</p>
+<h3 id="single-player-games">Single Player Games<a class="headerlink" href="#single-player-games" title="Permanent link">&para;</a></h3>
+<p>Some of the key environments for AI training today are single agent games where A.I. agents accomplish a per-determined goal for a reward (an actual reward or simply higher accuracy).</p>
+<p><a href="https://gym.openai.com/">Open AI’s Gym</a> or <a href="http://www.mujoco.org/">MuJoCo</a> is an excellent representation of many such environments where you can train your algorithm to perform for high accuracy on these games. There are some other open source implementations of these environments, for example, <a href="https://github.com/araffin/rl-baselines-zoo">RL-Baselines-Zoo</a> or <a href="https://openai.com/blog/roboschool/">RoboSchool</a> or <a href="https://github.com/benelot/pybullet-gym">PyBullet Gym</a>.</p>
+<p>Though, using A.I. in Games isn’t a new phenomenon caused by the A.I. <strong>outbreak</strong> (<em>thanks Alex Net!</em>). A.I. has been long explored in the game domain. Among the key uses and implementations for A.I. in games earlier is developing new terrains, environments (esp. in rogue games) or defining the behaviors of NPCs (Non-Player Characters). Today, people in the game industry have now taken it a notch further by using AI to develop new game engines like <a href="https://twitter.com/angelinasgames">Angelina</a>.</p>
+<h3 id="key-algorithms-for-ai-in-single-player-games">Key Algorithms for AI in Single Player Games<a class="headerlink" href="#key-algorithms-for-ai-in-single-player-games" title="Permanent link">&para;</a></h3>
+<p>While it would be beyond the scope of this article to define all the algorithms in detail, some excellent resources on this topic are <a href="https://www.amazon.com/Artificial-Intelligence-Games-Ian-Millington/dp/0123747317">Ian Millington’s Book on Artificial Intelligence for Games</a> and <a href="https://www.amazon.com/Artificial-Intelligence-Games-Georgios-Yannakakis/dp/3319635182">Julian Togelius’ book on Artificial Intelligence and Games</a>.</p>
+<p>On the big picture level, these algorithms can be classified into three broad categories-</p>
+<ol>
+<li>Movement Algorithms: This includes some of the most commonly known path-finding algorithms including Dijkstra or A* or Near-Optimal Hierarchical Path-finding (HPA) etc.</li>
+<li>Decision Making Algorithms: These include, but aren’t limited to, decision trees, finite state machines (FSM), behavior trees, fuzzy state machines and Markov Systems.</li>
+</ol>
+<p>The third category is the advanced State of the Art A.I. algorithms that we aren’t often seen in typical gaming industry implementations, though there are some exceptions we will discuss later.</p>
+<p>Some of these key unexploited algorithms include-</p>
+<ul>
+<li>Monte Carlo Tree Search (MCTS)</li>
+<li>Evolutionary Algorithms (Random-Key Genetic Algorithms, Differential Evolution Algorithms etc)</li>
+<li>Deep Reinforcement Learning — Policy Gradient (PPO/TRPO), Q-Learning(DQN/HER) or Mixed Policy Optimization (DDPG/SAC)</li>
+</ul>
+<p>However, mainstream tech companies and academic labs for AI and Robotics, have been developing, exploiting and extending various AI algorithms and implementing them on simpler custom-built environments.</p>
+<p>However, one of the key limitations of using single-player games to model and develop A.I. in single-agent environments is the inability of these trained agents to achieve goals in different multi-agent environments, thus refuting Shane and Hutter’s definition of intelligence.</p>
+<blockquote>
+<p>Intelligence measures an agent’s ability to achieve goals in a wide range of environments.</p>
+</blockquote>
+<h3 id="multiplayer-games">Multiplayer Games<a class="headerlink" href="#multiplayer-games" title="Permanent link">&para;</a></h3>
+<p>Some of the most prominent and recent success of our A.I. advancement can be captured by their performance on multiplayer games including <a href="https://openai.com/five/">Dota2</a> and <a href="https://deepmind.com/blog/alphastar-mastering-real-time-strategy-game-starcraft-ii/">StarCraft</a>.</p>
+<p>This kind of environments often extend the capabilities of a single-player-environment-agent (SEA) to a multiplayer-environment-agent (MEA) by adding something extra to the mix. This extra is the tactical and strategic A.I. that includes way-point tactics, coordinated action and learning.</p>
+<p>Multi-player games come in many flavors — small (Warframe), huge (Super Mario) or Open World Games (Sims 4, The Elder Scrolls V: Skyrim) and thus present a huge play-field for the research and development for A.I. algorithms.</p>
+<h3 id="the-world-is-a-simulation">The World is a Simulation<a class="headerlink" href="#the-world-is-a-simulation" title="Permanent link">&para;</a></h3>
+<p>While potentially a contrarian view, the key fascination for A.I. researchers in games stems from the ability to closely simulate the real world to understand and imitate human behaviors and actions.</p>
+<p>But isn’t the goal to create machine learning algorithms that could compete and (or) cooperate with human beings? Yes, precisely.</p>
+<p>While playing a game, you are inside a carefully simulated world where your actions and reactions have been pre-planned by the game designer and are hard-coded in advance. Thus, one could argue that most games are boxes of complete (and also constantly evolving for open-world games) information. Thus, it’s fair to say that if you can learn the rules you could win the game. However, the real world ain’t much different.</p>
+<p>For years, the so-called capitalist companies have been studying human behaviors to influence human decisions. Companies like Apple and Zara use several variations of warehouses to study the effect of the music playing in their stores to the lighting and positioning of items in the store. Researchers from various backgrounds (business, psychology, economics, politics, finance, journalism — you name it) have for years studied how predictable humans are — including Jonah Berger, Dan &amp; Chip Heath, Fiery Cushman, Dan Ariely, Charles Duhigg, Daniel Kahneman, Richard H. Thaler, Daniel M. Oppenheimer.</p>
+<p>In fact, some of the most fascinating work in the field of complex human patterns can be contributed to the man who shocked the world, Stanley Milgram, who devised a simple Obedience experiment to answer the following question about Nazi Germany and Holocaust:</p>
+<blockquote>
+<p>Could it be that Eichmann and his million accomplices in the Holocaust were just following orders? Could we call them all merely accomplices?”</p>
+</blockquote>
+<p>To someone who has never thought of his and other humans’ behaviours as predictable, manipulable patterns, questions like these might seem like philosophical questions. However, based on Milgram’s experiment, he reached a conclusive answer in his article <a href="https://is.muni.cz/el/1423/podzim2013/PSY268/um/43422262/Milgram_-_perils_of_obediance.pdf">Perils of Obedience</a></p>
+<blockquote>
+<p>Ordinary people are likely to follow orders given by an authority figure, even to the extent of killing an innocent human being. Obedience to authority is ingrained in us all from the way we are brought up. People tend to obey orders from other people if they recognize their authority as morally right and/or legally based.</p>
+</blockquote>
+<p>This led him to the development of Milgram’s Agency Theory. Milgram’s Agency Theory suggests humans have two mental states:</p>
+<ol>
+<li>Autonomous: In the Autonomous State we perceive ourselves to be responsible for our own behaviour so we feel guilty for what we do</li>
+<li>Agentic: In the Agentic State we perceive ourselves to be the agent of someone else’s will; the authority figure commanding us is responsible for what we do so we feel no guilt.</li>
+</ol>
+<p>As such, humans are predictable beings who live in a carefully planned predictable open-world. According to <a href="https://royalsocietypublishing.org/doi/10.1098/rsif.2018.0395">Seanoe et. al.</a>, the world we live in can also be interpreted as a biological (and, technological) evolution strongly tied to the generative potential tied through combinatorics that allows the system to grow and expand their available state spaces. Thus, many complex systems that presumably display Open-Ended Evolution, from language to proteins, share a common statistical property: the presence of <a href="https://www.wikiwand.com/en/Zipf%27s_law">Zipf’s Law</a>.</p>
+<p>Though, according to another <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0029796">study</a> conducted by Thurner et. al. on human behavioural sequences in an online world, it suggested that on a collective societal level the time-series of particular actions per day can be understood by a simple mean-reverting log-normal model which explains the rarity of absolute autonomy.</p>
+<p>To conclude, it won’t be wrong to say that we are merely agents with the two agencies (autonomous and agentic) in a multi-agent world.</p>
+<p>There are two essential ingredients when simulating human-like multi-agent societies-</p>
+<ol>
+<li>EvolutionThe environment or agent should be open-ended and constantly evolving.</li>
+<li>CreativityThe idea of seeing <a href="https://www.researchgate.net/profile/Margaret_Boden/publication/209436199_Creativity_in_a_nutshell/links/5424477c0cf26120b7a732d4/Creativity-in-a-nutshell.pdf">creativity as a search</a> in a space of potential search-space is not new; it has been discussed at length by, for example, the British philosopher Margaret Boden. In fact, J. Schmidhuber has also worked tirelessly to capture the idea of curiosity and creativity to devise a <a href="http://people.idsia.ch/~juergen/creativity.html">Formal Theory of Creativity</a></li>
+</ol>
+<h3 id="but-training-ai-on-games-isnt-a-good-idea-in-the-long-run">But training AI on Games isn’t a good idea in the long run<a class="headerlink" href="#but-training-ai-on-games-isnt-a-good-idea-in-the-long-run" title="Permanent link">&para;</a></h3>
+<p>Let us substitute the word “game” for the environment especially since we have established that the two mean the same in an agents’ world.</p>
+<p>Now, the games or training environments for AI can be broadly classified into two categories which can be further divided into two sub-categories-</p>
+<ol>
+<li>Static Environments</li>
+<li>Dynamic Environments<ul>
+<li>Dynamic Determinate Environments</li>
+<li>Dynamic Indeterminate Environments</li>
+</ul>
+</li>
+</ol>
+<p>While training and developing AI algorithms to perform well on static environments is a near-finish goal however developing A.I. that can achieve goals in dynamic environments is an area of research where we quickly hit various roadblocks, esp in dynamic indeterminate environments. In my opinion, there are three key contributors to the same-</p>
+<p>First would be our inadequate understanding of complexity theory and chaos theory. One of the most interesting efforts that is being pursued in this direction is <a href="https://arxiv.org/abs/1803.05049">Fractal AI</a>.</p>
+<p>Second is the lack of models. Most of our current AI models are data-hungry beasts that need huge computational resources. Some of the most interesting works in this direction pursued by the Game AI community are <a href="http://www.possibilityspace.org/papers/iccc19.pdf">Framing for Computational Creativity</a> and by the causal inference community <a href="https://twitter.com/yudapearl">The Book of Why</a></p>
+<p>The third is the problem of learning that includes transfer learning and lifelong learning. Some of the interesting works in this direction are <a href="https://www.automl.org/">AutoML Research</a>, <a href="https://lilianweng.github.io/lil-log/2018/11/30/meta-learning.html">Meta-Learning</a> and Differential Evolution (check <a href="https://github.com/uber-research/differentiable-plasticity">Differential Plasticity</a>)</p>
+<h3 id="open-endedness">Open-Endedness<a class="headerlink" href="#open-endedness" title="Permanent link">&para;</a></h3>
+<p>One of the classical properties of Dynamic Indeterminate Spaces is their <a href="https://www.oreilly.com/ideas/open-endedness-the-last-grand-challenge-youve-never-heard-of">open-endedness</a>. Open-ended problems are hard to define and model thus are often abandoned due to the lack of definite metrics.</p>
+<p>Another way of looking at this problem is through the lens of algorithmic complexity namely <a href="https://www.wikiwand.com/en/Kolmogorov_complexity">Kolmogorov Complexity</a>, <a href="https://www.wikiwand.com/en/Attribute_substitution">Attribute Substitution</a>, <a href="https://www.wikiwand.com/en/Occam%27s_razora">Occam’s Razor</a> and <a href="http://people.idsia.ch/~juergen/mljssalevin/node5.html">Adaptive Levin Search</a>.</p>
+<p>However, a few researchers who dabbled into this space have created quite a perspective shift. One such work is the paper <a href="http://eplex.cs.ucf.edu/papers/lehman_alife08.pdf">Exploiting Open-Endedness to Solve Problems Through the Search for Novelty</a>. Later, another excellent work in novelty-search which a few years later led to the development of <a href="https://www.frontiersin.org/articles/10.3389/frobt.2016.00040/full">quality-diversity algorithms</a>.</p>
+<p>According to one of the first <a href="https://www.frontiersin.org/articles/10.3389/frobt.2016.00040/full">papers</a> in Quality diversity (QDA) algorithms by Kenneth Stanley et. al., QDAs is a kind of learning algorithm (for example, novelty search with local competition and <a href="http://jeffclune.com/publications/2019-06-20-ReWork-POET.pdf">MAP-Elites</a>) that try to balance the great dilemma in machine learning: <strong>exploration vs. exploitation</strong>. They aim to optimize for both quality and diversity simultaneously while aiming to fill a space of possibilities with the best possible example of each type of achievable behaviour. The result is this new class of algorithms that return an archive of diverse, high-quality behaviours in a single run.</p>
+<p>Though, because of the digital nature of inheritance, there are inherent limits on the kinds of questions that can be answered using such an approach. In particular, according to an excellent paper by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3284140/">Troy Day</a>, even in extremely simple evolutionary systems, a complete theory accounting for the potential open-endedness of evolution is unattainable unless evolution is progressive.</p>
+<p>However, in 1936, Turing adapted Godel’s Theory of Open-Endedness (also called Incompleteness) to computability to show that a general algorithm to solve the <a href="https://www.wikiwand.com/en/Halting_problem">halting problem</a> for all possible program-input pairs cannot exist.</p>
+<p>One of the rebuttals of Godel’s open-endedness problem has been presented in <a href="https://www.semanticscholar.org/paper/Monads-and-Sets%3A-On-G%C3%B6del%2C-Leibniz%2C-and-the-Atten/1bc646d1c6b0494f8b65477f0dd4e36e54253948">Monads and Sets: On Gödel, Leibniz, and the Reflection Principle</a>. In complexity theory, it can also be interpreted as the Reflection Principle applied to the <a href="https://www.wikiwand.com/en/Reflection_principle_%28Wiener_process%29">Wiener Process</a>.</p>
+<p>So, if we were to agree with Godel and his theory of open-endedness, then how do we develop progressive environments thus leading to progressive search spaces and thus hopefully progressive quality-diversity search algorithms?</p>
+<h3 id="introducing-pcg">Introducing PCG<a class="headerlink" href="#introducing-pcg" title="Permanent link">&para;</a></h3>
+<p>Procedural content generation (PCG) is the programmatic generation of game content using a random or pseudo-random process that results in an unpredictable range of possible gameplay spaces.</p>
+<p>But why games again? Didn’t we just establish that games are inadequate training environments?</p>
+<p>Games make it easy to comparatively test and measure for novelty, delight and desirability in the newly created content.</p>
+<p>Some of the interesting applications of procedural content generation for training A.I. agents have been seen in the games like <a href="https://arxiv.org/abs/1902.01378">Obstacle Tower</a>, <a href="https://deepmind.com/blog/capture-the-flag-science/">Capture the Flag</a> etc. Though it would be interesting to see A.I. agents trained on games like The Shadow of Mordor, a game where NPCs remember their encounters with you and refer back to them in future fights to more accurately represent the real world.</p>
+<p>Thus, PCG presents huge opportunities for the field of A.I. in general. However, one of the big problems would be while games present excellent training environments for training our A.I. agents in decision making for competition and cooperation. But one of the biggest challenges for these advanced A.I. algorithms would be coordination with humans due to the differences in evolution.</p>
+<p>Despite our common biological roots and parallel evolutionary process, it has taken animals and humans only 200,000 years to adapt and evolve alongside each other.</p>
+<p>Through these thousands of years of shared evolution, many animal species esp cats and dogs have become inseparable from human societies, not only terrestrially but also emotionally — a magnificent feat especially given the lack of a common language of expression and entirely different cognitive and physical abilities.</p>
+<h3 id="the-way-ahead-mixed-initiative-games">The Way Ahead: Mixed-Initiative Games<a class="headerlink" href="#the-way-ahead-mixed-initiative-games" title="Permanent link">&para;</a></h3>
+<p>This suggests that we could build A.I. systems where A.I. algorithms can collaborate with humans such that the AI can learn, provide suggestions and guess the intent of the human user to help him achieve common goals.</p>
+<p>Some interesting works in this direction are <a href="https://link.springer.com/chapter/10.1007/978-3-319-42716-4_11">Mixed Initiative Game Design Platform Tangara</a>, <a href="https://deepmind.com/blog/capture-the-flag-science/">Quake III Arena</a>, <a href="http://www.sentientsketchbook.com/">Sentinent Sketchbook</a> which is used by AI to second guess the designer’s intention, <a href="http://www.cse.msu.edu/~jchai/">Collaborative Language Grounding with Robots</a>, <a href="https://slideslive.com/38916832/beyond-demonstrations-learning-behavior-from-higherlevel-supervision">Hierarchical Imitation</a> and <a href="https://www.media.mit.edu/publications/intrinsic-social-motivation-via-causal-influence-in-multi-agent-rl/">Intrinsic Social Motivation via Causal Influence in Multi-Agent Reinforcement Learning</a></p>
+<p><sup> * Acknowledgements: I would like to thank <a href="https://twitter.com/iandanforth">Ian Danforth</a> for proofreading the article and providing useful feedback.</sup></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+      
+        <a href="../2017-09-10-associative-memory/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Dense Associative Memory for Pattern Recognition
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 Abi Aryan
+          </div>
+        
+        <!-- Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a> -->
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/abi-aryan" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/goabiaryan" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+      <a href="mailto:<abi@abiaryan.com>" target="_blank" rel="noopener" title="" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bf05ca82.min.js"></script>
+      
+    
+  </body>
+</html>
