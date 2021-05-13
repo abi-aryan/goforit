@@ -20,7 +20,7 @@
 
 # Project information
 site_name: Abi Aryan
-site_url: https://www.abiaryan.com/
+site_url: https://abi-aryan.github.io/website/
 site_author: Abi Aryan
 site_description: >-
   Personal Blog
@@ -111,6 +111,7 @@ extra:
     #   link: https://instagram.com/squidfunk
     - icon: fontawesome/solid/paper-plane
       link: mailto:<abi@abiaryan.com>
+  disqus: abi-aryan
 
 # Extensions
 markdown_extensions:
@@ -207,8 +208,8 @@ nav:
       - Developing A.I. using Games: posts/2019-09-09-game-ai.md
       - Dense Associative Memory for Pattern Recognition: posts/2017-09-10-associative-memory.md
       - Why TensorLayer: posts/2019-05-10-why-tensorlayer.md     
-  - About: About.md
-  - News: index.md
+  - About: index.md
+  - News: news.md
 
 # Google Analytics
 google_analytics:
