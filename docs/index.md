@@ -24,4 +24,4 @@ Some of the areas I have been worked on previously but not pursuing actively any
 
 # Research
 1. [Arena: A General Evaluation Platform and Building Toolkit for Multi-Agent Intelligence. Proceedings of the AAAI Conference on Artificial Intelligence (2020, 34(05), 7253-7260.](https://ojs.aaai.org/index.php/AAAI/article/view/6216) Yuhang Song, Andrzej Wojcicki, Thomas Lukasiewicz, Jianyi Wang, Abi Aryan, Zhenghua Xu, Mai Xu, Zihan Ding, Lianlong Wu
-2. [Problems & Challenges in AutoML (2019)](https://drive.google.com/file/d/16_w6b9P6rKlzb-7ClD69LYPEXz6hZd7R/view?usp=sharing) Abi Aryan, Shubhi Sareen
+2. [Problems & Challenges in AutoML (2019)](https://drive.google.com/file/d/1scGSoIg8uhb6zmGeMVSGAz4N4rYuVCLP/view?usp=sharing) Abi Aryan, Shubhi Sareen
