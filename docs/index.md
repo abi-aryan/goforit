@@ -1,6 +1,6 @@
 My name is Abi Aryan. I am a Machine Learning (ML) Engineer and a Data Science Fellow at Insight in Toronto. I was previously a Visiting Research Scholar at UCLA under [Dr. Judea Pearl](http://bayes.cs.ucla.edu/jp_home.html) where I worked in AutoML, MultiAgent Systems and Emotion Recognition. Prior to that, I worked as product and engineering head for five years with startups across U.S., U.K., and India. 
 
-I attended [London School of Economics (LSE)](https://www.lse.ac.uk/Mathematics) for a Masters in Applicable Mathematics and did my Bachelors in Mathematics with minors in Statistics and Computer Science from [Maharshi Dayanand University (MDU)](https://mdu.ac.in/).
+I attended [London School of Economics (LSE)](https://www.lse.ac.uk/Mathematics) for a Masters in Applicable Mathematics and did my Bachelors in Mathematics with minors in Statistics and Computer Science from [Maharshi Dayanand University (MDU)](https://mdu.ac.in/)
 
 I am, foremost, driven by the goal to create personalized humane-agents that can influence and alter human decision making, but subsconsciously, also the nagging desire to leave the world a slightly better place than I found it. A tad bit geeky and a gadget lover at heart, I am equally fascinated by large-scale engineering application design as well as low level computer hardware engineering including microprocessors, crafting compilers, integrated chip design etc.
 
